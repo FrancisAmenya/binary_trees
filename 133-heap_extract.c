@@ -34,6 +34,7 @@ void heapify_down(binary_tree_t *root)
 	if (largest != root)
 	{
 		int temp = root->n;
+		
 		root->n = largest->n;
 		largest->n = temp;
 		heapify_down(largest);
@@ -50,6 +51,7 @@ void heapify_down(binary_tree_t *root)
 binary_tree_t *get_last_node(binary_tree_t *root, size_t size)
 {
 	size_t mask = 1;
+	
 	while (mask <= size)
 		mask <<= 1;
 	mask >>= 2;
@@ -62,7 +64,7 @@ binary_tree_t *get_last_node(binary_tree_t *root, size_t size)
 			root = root->left;
 		mask >>= 1;
 	}
-	return root;
+	return (root);
 }
 
 /**
