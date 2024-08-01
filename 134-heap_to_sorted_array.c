@@ -13,15 +13,15 @@ int *heap_to_sorted_array(heap_t *heap, size_t *size)
 {
 	int *array;
 	int extract, i = 0;
-	size_t heap_size;
+	size_t heap_size_value;
 
 	if (!heap || !size)
 		return (NULL);
 
-	heap_size = heap_size((const binary_tree_t *)heap);
-	*size = heap_size;
+	heap_size_value = heap_size((const binary_tree_t *)heap);
+	*size = heap_size_value;
 
-	array = malloc(heap_size * sizeof(int));
+	array = malloc(heap_size_value * sizeof(int));
 	if (!array)
 		return (NULL);
 
