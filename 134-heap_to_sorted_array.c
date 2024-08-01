@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#include <stdlib.h>
 
 /**
  * heap_to_sorted_array - Converts a Binary Max Heap to a sorted array-integer.
@@ -14,18 +15,22 @@ int *heap_to_sorted_array(heap_t *heap, size_t *size)
 	int extract, i = 0;
 	size_t heap_size;
 
-	if (!heap)
+	if (!heap || !size)
 		return (NULL);
-	heap_size = binary_tree_size(heap);
+
+	heap_size = heap_size((const binary_tree_t *)heap);
 	*size = heap_size;
+
 	array = malloc(heap_size * sizeof(int));
 	if (!array)
 		return (NULL);
+
 	while (heap)
 	{
-		extract = heap_extract(&heap);
+		extract = heap_extract((binary_tree_t **)&heap);
 		array[i] = extract;
 		i++;
 	}
+
 	return (array);
 }
